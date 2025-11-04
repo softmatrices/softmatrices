@@ -59,7 +59,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'softmatrices01@gmail.com',
+      value: 'info@softmatrices.com',
       description: 'Send us an email anytime'
     }
   ];
