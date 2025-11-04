@@ -34,10 +34,10 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        emailConfig.serviceId,
-        emailConfig.templateId,
+        import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
+        import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
         templateParams,
-        emailConfig.publicKey
+        import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       setIsSubmitting(false);
