@@ -1,0 +1,76 @@
+---
+import AnimatedBackground from '../components/AnimatedBackground';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = "Softmatrices delivers cutting-edge technology and expert consulting to drive your business forward. Our tailored solutions ensure efficiency, security, and growth.", image = "/og-image.svg" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="IT solutions, software development, cloud computing, AI/ML, cybersecurity, business consulting" />
+    <meta name="author" content="Softmatrices" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://softmatrices.com/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://softmatrices.com/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Softmatrices",
+        "url": "https://softmatrices.com",
+        "logo": "https://softmatrices.com/logo.png",
+        "description": "Softmatrices delivers cutting-edge technology and expert consulting to drive your business forward.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-555-123-4567",
+          "contactType": "customer service",
+          "email": "hello@softmatrices.com"
+        },
+        "sameAs": [
+          "https://twitter.com/softmatrices",
+          "https://linkedin.com/company/softmatrices",
+          "https://facebook.com/softmatrices"
+        ]
+      }
+    </script>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"></noscript>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50">
+    <slot />
+  </body>
+</html>
+
+<style>
+  @import '../styles/global.css';
+</style>
